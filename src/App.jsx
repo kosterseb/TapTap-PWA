@@ -6,14 +6,14 @@ import { Play, RotateCcw, Clock, Zap } from 'lucide-react';
 // Access the global GSAP variable loaded via the CDN script in index.html
 const gsap = window.gsap; 
 
-// PWA Service Worker Registration Fix - Registers immediately on call.
+// PWA Service Worker Registration
 const registerServiceWorker = () => {
     if ('serviceWorker' in navigator) {
-        // We use the full path here (/brutalist-clicker/sw.js) to correctly set the scope
-        // for deployment to GitHub Pages.
-        navigator.serviceWorker.register('/brutalist-clicker/sw.js')
+        // --- PRODUCTION PATH ---
+        // We set this to /brutalist-clicker/sw.js to match the GitHub Pages URL.
+        navigator.serviceWorker.register('/brutalist-clicker/sw.js') 
             .then(registration => {
-                console.log('SW registered successfully:', registration.scope);
+                console.log('SW registered successfully, scope:', registration.scope);
             })
             .catch(error => {
                 console.error('SW registration failed:', error); 
@@ -55,7 +55,7 @@ const App = () => {
 
     // Runs once on mount for PWA registration
     useEffect(() => {
-        registerServiceWorker(); // Now runs immediately on mount
+        registerServiceWorker(); 
     }, []);
 
     // --- Core Game Logic ---
@@ -260,7 +260,7 @@ const App = () => {
             
             {/* Note about PWA/Workbox implementation */}
             <p className="mt-12 text-center text-xs text-gray-700 max-w-sm">
-                *PWA Note: A simulated Service Worker registration is included. For full offline functionality using Workbox in a Vite project, ensure the `sw.js` and `manifest.json` files are in your **public** directory.
+                *PWA Note: Ensure sw.js and manifest.json are in the public folder.
             </p>
 
             <style>{`
@@ -279,5 +279,4 @@ const App = () => {
     );
 }
 
-// THIS IS THE CRITICAL LINE THAT MUST BE AT THE END OF App.jsx
 export default App;
