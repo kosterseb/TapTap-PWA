@@ -1,0 +1,5 @@
+/* Global css addons so tailwind works */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
