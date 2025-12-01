@@ -11,7 +11,7 @@ const registerServiceWorker = () => {
     if ('serviceWorker' in navigator) {
         // --- PRODUCTION PATH ---
         // We set this to /brutalist-clicker/sw.js to match the GitHub Pages URL.
-        navigator.serviceWorker.register('/brutalist-clicker/sw.js') 
+        navigator.serviceWorker.register('/TapTap-PWA/sw.js') 
             .then(registration => {
                 console.log('SW registered successfully, scope:', registration.scope);
             })
