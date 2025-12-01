@@ -177,13 +177,6 @@ const App = () => {
                     <Zap size={16} />
                 </div>
             )}
-            {/* Overlay for score/timer text that moves with the shake */}
-            <div className="absolute top-2 left-2 p-2 bg-white border-2 border-black font-mono text-sm shadow-[2px_2px_0_0_#000]">
-                TIME: {timeLeft.toFixed(1)}s
-            </div>
-            <div className="absolute top-2 right-2 p-2 bg-white border-2 border-black font-mono text-sm shadow-[2px_2px_0_0_#000]">
-                SCORE: {score}
-            </div>
         </div>
     );
 
